@@ -39,11 +39,11 @@ vk1D & /::Send,{Blind}{Delete}
 
 ; 行挿入
 vk1D & Enter::
-  If (GetKeyState("Ctrl", "P")) {
-    Send, {Up}{End}{Enter}
-  } Else {
-    Send, {End}{Enter}
-  }
+    If (GetKeyState("Ctrl", "P")) {
+        Send, {Up}{End}{Enter}
+    } Else {
+        Send, {End}{Enter}
+    }
 Return
 
 ; 半角英数
