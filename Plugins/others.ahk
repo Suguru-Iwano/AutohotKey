@@ -1,4 +1,14 @@
-﻿; OneNote, Excel
+﻿; Ctrl + T -> ブラウザ以外では Winキー + E
+^t::
+    if ( WinActive("ahk_exe chrome.exe")
+    || WinActive("ahk_exe msedge.exe")){
+        Send,^t
+    }else{
+        Send,#e
+    }
+return
+
+; OneNote, Excel
 #If, WinActive("ahk_exe ONENOTE.EXE")
     ||WinActive("ahk_exe EXCEL.EXE")
 ; 無変換 + Shift + R ;; 文字を赤色にする
