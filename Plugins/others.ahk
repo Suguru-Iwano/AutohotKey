@@ -1,7 +1,8 @@
 ﻿; Ctrl + T -> ブラウザ以外では Winキー + E
 ^t::
     if ( WinActive("ahk_exe chrome.exe")
-    || WinActive("ahk_exe msedge.exe")){
+        || WinActive("ahk_exe msedge.exe")
+    || WinActive("ahk_exe Code.exe")){
         Send,^t
     }else{
         Send,#e
