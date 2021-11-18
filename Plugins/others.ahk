@@ -1,4 +1,33 @@
-﻿; Ctrl + T -> ブラウザ以外では Winキー + E
+﻿#Include *i %A_ScriptDir%\Plugins\IME.ahk
+
+; Windowsキー押下時、同時にIMEをOFF
+LWIN::
+    Send {LWIN}
+    Sleep 100
+    IME_SET(0)
+Return
+RWIN::
+    Send {RWIN}
+    Sleep 100
+    IME_SET(0)
+Return
+
+; ブラウザのアドレスバーでIMEをOFF
+#If, WinActive("ahk_exe chrome.exe")
+    ||WinActive("ahk_exe msedge.exe")
+^l::
+    Send ^l
+    Sleep 100
+    IME_SET(0)
+Return
+^t::
+    Send ^t
+    Sleep 100
+    IME_SET(0)
+Return
+#IfWinActive
+
+; Ctrl + T -> ブラウザ以外では Winキー + E
 ^t::
     if ( WinActive("ahk_exe chrome.exe")
         || WinActive("ahk_exe msedge.exe")
