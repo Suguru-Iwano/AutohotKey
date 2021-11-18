@@ -4,6 +4,9 @@ vkF0::Return
 ; F24でアンダーバー入力
 F24::_
 
+; Ctrl + [ -> Esc
+^[::Esc
+
 ;デスクトップフォルダを開く
 ;#e::Run, %A_Desktop%
 
