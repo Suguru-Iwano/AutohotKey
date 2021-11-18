@@ -1,16 +1,14 @@
 ﻿#Include *i %A_ScriptDir%\Plugins\IME.ahk
 
-; Windowsキー押下時、同時にIMEをOFF
-LWIN::
-    Send {LWIN}
+; ; Windowsキー押下時、同時にIMEをOFF
+LWin up::
+    ; LWIN単体で押したとき
+    If (A_PriorKey = "LWin")
+        Send {LWIN}
     Sleep 100
     IME_SET(0)
-Return
-RWIN::
-    Send {RWIN}
-    Sleep 100
-    IME_SET(0)
-Return
+return
+<#d:: Send #d
 
 ; ブラウザのアドレスバーでIMEをOFF
 #If, WinActive("ahk_exe chrome.exe")
@@ -28,15 +26,11 @@ Return
 #IfWinActive
 
 ; Ctrl + T -> ブラウザ以外では Winキー + E
-^t::
-    if ( WinActive("ahk_exe chrome.exe")
-        || WinActive("ahk_exe msedge.exe")
-    || WinActive("ahk_exe Code.exe")){
-        Send,^t
-    }else{
-        Send,#e
-    }
-return
+#If, !(WinActive("ahk_exe chrome.exe")
+    || WinActive("ahk_exe msedge.exe")
+|| WinActive("ahk_exe Code.exe"))
+^t::Send #e
+Return
 
 ; OneNote, Excel
 #If, WinActive("ahk_exe ONENOTE.EXE")
