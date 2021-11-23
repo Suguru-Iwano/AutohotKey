@@ -6,8 +6,9 @@
     Sleep 10
     Send ^v
     Send ^a
+Return
 
-    ; Windowsキー押下時、IME OFF
+; Windowsキー押下時、IME OFF
 LWin up::
     ; LWIN単体で押したとき
     If (A_PriorKey = "LWin")
