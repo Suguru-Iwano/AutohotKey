@@ -27,8 +27,7 @@ Return
 
 ; Ctrl + T -> ブラウザ以外では Winキー + E
 #If, !(WinActive("ahk_exe chrome.exe")
-    || WinActive("ahk_exe msedge.exe")
-|| WinActive("ahk_exe Code.exe"))
+    || WinActive("ahk_exe msedge.exe"))
 ^t::Send #e
 Return
 
