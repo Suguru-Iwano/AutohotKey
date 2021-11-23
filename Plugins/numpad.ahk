@@ -16,23 +16,69 @@
     || GetKeyState("Shift", "P")
 || GetKeyState("Alt", "P")
 || GetKeyState("LWin", "P"))
-vk1D & z::Send, 0
-vk1D & x::Send, 1
-vk1D & c::Send, 2
-vk1D & v::Send, 3
-vk1D & s::Send, 4
-vk1D & d::Send, 5
-vk1D & f::Send, 6
-vk1D & w::Send, 7
-vk1D & e::Send, 8
-vk1D & r::Send, 9
-vk1D & b::Send, =
-vk1D & a::Send, *
-vk1D & q::Send, {NumpadDiv}
-vk1D & g::Send, {+}
-vk1D & t::Send, -
-vk1D & Tab::Send, {Enter}
-vk1D & LWin::Send, .
+vk1C & z::Send, {Numpad0}
+vk1C & x::Send, {Numpad1}
+vk1C & c::Send, {Numpad2}
+vk1C & v::Send, {Numpad3}
+vk1C & s::Send, {Numpad4}
+vk1C & d::Send, {Numpad5}
+vk1C & f::Send, {Numpad6}
+vk1C & w::Send, {Numpad7}
+vk1C & e::Send, {Numpad8}
+vk1C & r::Send, {Numpad9}
+
+; 常に半角
+#UseHook
+vk1C & b::
+    ime_mode := IME_GET()
+    IME_SET(0)
+    Send, =
+    IME_SET(ime_mode)
+Return
+vk1C & a::
+    ime_mode := IME_GET()
+    IME_SET(0)
+    Send, {NumpadMult}
+    IME_SET(ime_mode)
+Return
+vk1C & q::
+    ime_mode := IME_GET()
+    IME_SET(0)
+    Send, {NumpadDiv}
+    IME_SET(ime_mode)
+Return
+vk1C & g::
+    ime_mode := IME_GET()
+    IME_SET(0)
+    Send, {NumpadAdd}
+    IME_SET(ime_mode)
+Return
+vk1C & t::
+    ime_mode := IME_GET()
+    IME_SET(0)
+    Send, {NumpadSub}
+    IME_SET(ime_mode)
+Return
+vk1C & Alt::
+    ime_mode := IME_GET()
+    IME_SET(0)
+    Send, {NumpadDot}
+    IME_SET(ime_mode)
+Return
+vk1C & Space::
+    ime_mode := IME_GET()
+    IME_SET(0)
+    Send, {Space}
+    IME_SET(ime_mode)
+Return
+vk1C & Tab::
+    ime_mode := IME_GET()
+    IME_SET(0)
+    Send, {Enter}
+    IME_SET(ime_mode)
+Return
+#UseHook OFF
+
 #If
 
 ; テンキー
