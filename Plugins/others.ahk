@@ -1,13 +1,13 @@
 ﻿#Include *i %A_ScriptDir%\Plugins\IME.ahk
 
-; 検索時、クリップボード貼付
+; 検索時、貼付
 ^f::
     Send ^f
     Sleep 10
     Send ^v
     Send ^a
 
-    ; Windowsキー押下時、同時にIMEをOFF
+    ; Windowsキー押下時、IME OFF
 LWin up::
     ; LWIN単体で押したとき
     If (A_PriorKey = "LWin")
@@ -17,9 +17,10 @@ LWin up::
 return
 <#d:: Send #d
 
-; ブラウザのアドレスバーでIMEをOFF & クリップボード貼付
+; ブラウザの場合
 #If, WinActive("ahk_exe chrome.exe")
     ||WinActive("ahk_exe msedge.exe")
+; アドレスバー有効化でIME OFF & 貼付
 ^l::
     Send ^l
     Sleep 10
@@ -27,11 +28,19 @@ return
     Send ^a
     IME_SET(0)
 Return
+; 新しいタブでIME OFF & 貼付
 ^t::
     Send ^t
     Sleep 10
     Send ^v
     Send ^a
+    IME_SET(0)
+Return
+; URL反転でIME OFF & コピー
+!d::
+    Send !d
+    Sleep 10
+    Send ^c
     IME_SET(0)
 Return
 #IfWinActive
