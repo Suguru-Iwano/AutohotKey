@@ -1,5 +1,6 @@
 vk1D & vkF4::Esc
 vk1D & vkF3::Esc
+vk1D & Tab::Esc
 vk1D & 1::F1
 vk1D & 2::F2
 vk1D & 3::F3
